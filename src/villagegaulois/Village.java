@@ -68,9 +68,24 @@ public class Village {
 		{
 			marche.utiliserEtal(emplacement, vendeur, produit, nbProduit);
 			emplacement+=1;
-			chaine.append("Le vendeur " + vendeur.getNom() + " vend des " + produit + " à l'étal " + emplacement ) ;
+			chaine.append("Le vendeur ") ;
+			chaine.append(vendeur.getNom());
+			chaine.append(" vend des ");
+			chaine.append(produit); 
+			chaine.append("à l'étal") ;
+			chaine.append(emplacement ) ;
 		}
 		return chaine.toString() ;
+	}
+	public String rechercherVendeursProduit(String produit)
+	{
+		StringBuilder chaine = new StringBuilder();
+		int compteur = 0 ;
+		for (Etal etal : marche.etals )
+		{
+			
+		}
+		return 
 	}
 	
 	private static class Marche {
