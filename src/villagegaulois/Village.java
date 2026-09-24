@@ -74,9 +74,43 @@ public class Village {
 		}
 		public int trouverEtalLibre ()
 		{
-			int compteur = 0 ;
-			while  ()
-			return 0 
+			for (Etal etal : etals) {
+			if (!etal.isEtalOccupe())
+			{
+				return 0 ;
+			}}
+			return -1 ;
+		}
+		
+		public Etal[] trouverEtals(String produit)
+		{
+			int nbetals=0;
+			for (Etal etal : etals)
+			{
+				if (etal.contientProduit(produit)) { nbetals += 1 ; }
+			}
+			Etal [] tabEtal = new Etal [nbetals] ;
+			int compt = 0 ;
+			for (Etal etal : etals)
+			{
+				if (etal.contientProduit(produit)) 
+				{   
+					tabEtal [compt] = etal ;
+					compt += 1 ;
+				}
+			}
+			return tabEtal ;
+		}
+		public Etal trouverVendeur (Gaulois gaulois)
+		{
+			for (Etal etal : etals)
+			{
+				if (etal.getVendeur().equals(gaulois))
+				{
+					return etal ;
+				}
+			}
+			return null ;
 		}
 	}
 	
