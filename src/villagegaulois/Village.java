@@ -7,11 +7,13 @@ public class Village {
 	private String nom;
 	private Chef chef;
 	private Gaulois[] villageois;
+	private Marche[] marche ;
 	private int nbVillageois = 0;
 
-	public Village(String nom, int nbVillageoisMaximum) {
+	public Village(String nom, int nbVillageoisMaximum , int nbEtals) {
 		this.nom = nom;
 		villageois = new Gaulois[nbVillageoisMaximum];
+		marche = new Marche [nbEtals];
 	}
 
 	public String getNom() {
@@ -74,11 +76,14 @@ public class Village {
 		}
 		public int trouverEtalLibre ()
 		{
+			int compteur = 0;
 			for (Etal etal : etals) {
 			if (!etal.isEtalOccupe())
 			{
-				return 0 ;
-			}}
+				return compteur ;
+			}
+			else {compteur +=1 ;}
+			}
 			return -1 ;
 		}
 		
@@ -111,6 +116,15 @@ public class Village {
 				}
 			}
 			return null ;
+		}
+		public void afficherMarche() {
+			int compteuretalvide=0;
+			for (Etal etal : etals)
+			{
+				if (etal.isEtalOccupe()) { etal.afficherEtal(); }
+				else { compteuretalvide+=1 ; }
+			}
+			System.out.println("Il reste " + compteuretalvide + " étals non utilisés dans le marché.") ; 
 		}
 	}
 	
